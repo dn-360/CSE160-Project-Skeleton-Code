@@ -18,10 +18,9 @@ module Node{
 
    uses interface SplitControl as AMControl;
    uses interface Receive;
-
    uses interface SimpleSend as Sender;
-
    uses interface CommandHandler;
+   uses interface NeighborDiscovery; //Added
 }
 
 implementation{
@@ -65,7 +64,11 @@ implementation{
       call Sender.send(sendPackage, destination);
    }
 
-   event void CommandHandler.printNeighbors(){}
+   event void CommandHandler.printNeighbors(){
+      dbg(GENERAL_CHANNEL, "Printing Neighbors...");
+      call NeighborDiscovery.print();
+
+   }
 
    event void CommandHandler.printRouteTable(){}
 
