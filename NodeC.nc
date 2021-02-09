@@ -18,8 +18,8 @@ implementation {
     components Node;
     components new AMReceiverC(AM_PACK) as GeneralReceive;
 
-    components NeighborDiscoveryC; //Added neighbor discovery component
-    Node.NeighborDiscovery -> NeighborDiscoveryC.NeighborDiscovery;
+    components NeighborDiscoveryC; 
+    Node.NeighborDiscovery -> NeighborDiscoveryC;
 
     Node -> MainC.Boot;
 
