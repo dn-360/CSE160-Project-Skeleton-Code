@@ -22,4 +22,10 @@ implementation{
     //Broadcast address
     //check for reply
     //if yes, go to next neighbor, otherwise flood again
+
+    // command FReceiver.receive(message_t* msg, void* payload, uint8_t len){
+
+    // }
+
+    // command FSender.send(pack* msg, uint8_t dest){
 }
