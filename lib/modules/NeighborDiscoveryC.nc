@@ -1,15 +1,17 @@
-#include <Timer.h>
-#include "../../includes/CommandMsg.h"
-#include "../../includes/packet.h"
+// #include <Timer.h>
+// #include "../../includes/CommandMsg.h"
+// #include "../../includes/packet.h"
 
 configuration NeighborDiscoveryC{
     provides interface NeighborDiscovery;
-    // uses interface List<neighbor> NeighborListC;
+    uses interface Hashmap<pack> as NHashmapC;
 }
 implementation{
     
     components NeighborDiscoveryP;
     NeighborDiscovery = NeighborDiscoveryP.NeighborDiscovery;
+
+    NeighborDiscoveryP.NHashmap = NHashmapC;
 
     components new TimerMilliC() as PeriodicTimer;
     NeighborDiscoveryP.PeriodicTimer -> PeriodicTimer; // Timer to send neighbor dircovery packets periodically
